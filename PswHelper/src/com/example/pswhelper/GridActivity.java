@@ -30,7 +30,7 @@ public class GridActivity extends Activity {
   
     @Override  
     public void onCreate(Bundle savedInstanceState) {  
-        if (!LoginActivity.isLogin) {
+        if (!GestureLoginActivity.isLogin) {
             finish();
         }
         super.onCreate(savedInstanceState);  
