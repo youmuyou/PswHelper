@@ -244,7 +244,7 @@ public class MailUtils {
         MailUtils sendmail = new MailUtils();
         sendmail.setHost("smtp.163.com");
         sendmail.setUserName("yzyspy@163.com");
-        sendmail.setPassWord("YZYspy20130909");
+        sendmail.setPassWord("####################");
       //  sendmail.setTo("chengyue@accfutures.com,305597562@qq.com,chengli_68@163.com");
         sendmail.setTo("475720946@qq.com");
         sendmail.setFrom("yzyspy@163.com");
